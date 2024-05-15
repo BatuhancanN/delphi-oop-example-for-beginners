@@ -18,6 +18,7 @@ type TUser = class(TObject)
 
 
     procedure setBalance(dBalance : double);
+    procedure setBalanceFixed(dBalance : double);
     function getUserBalance : double;
 
 
@@ -41,6 +42,11 @@ end;
 procedure TUser.setBalance(dBalance : double);
 begin
   fBalance := fBalance + dBalance;
+end;
+
+procedure TUser.setBalanceFixed(dBalance : double);
+begin
+  fBalance := dBalance;
 end;
 
 function TUser.getUserBalance : double;

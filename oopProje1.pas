@@ -61,8 +61,6 @@ begin
   end;
 
   SaveMode;
-
-
 end;
 
 
@@ -86,6 +84,7 @@ begin
 
     MessageDlg('Baþarýyla güncellendi!', mtInformation, [mbOK], 0);
 
+    newBalance := 0;
   end;
 end;
 
@@ -162,8 +161,12 @@ end;
 procedure TMainPage.listViewClick(Sender: TObject);
 var
   SelectedItem: TListItem;
+  currentBalance : double;
 begin
   SelectedItem := listView.Selected;
+
+  currentBalance := StrToFloat(SelectedItem.SubItems[3]);
+  objUser.setBalanceFixed(currentBalance);
 
   if SelectedItem = nil then
     Exit;
